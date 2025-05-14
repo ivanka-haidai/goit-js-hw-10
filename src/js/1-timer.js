@@ -23,7 +23,7 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0]);
+   
     const currentDate = new Date();
     const pickedDate = selectedDates[0];
     if(pickedDate <= currentDate) {
@@ -75,6 +75,7 @@ function updateTimer() {
   const msTime = userSelectedDate - new Date();
   if (msTime <= 0) {
     clearInterval(timerId);
+    selectDateInput.disabled = false;
     return;
   }
   const { days, hours, minutes, seconds } = convertMs(msTime);
